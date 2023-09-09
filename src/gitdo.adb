@@ -4,10 +4,10 @@ with Ada.Directories; use Ada;
 procedure Gitdo is
   use Ada.Directories;
 
-  procedure Find_Files is
-    Dir                    : Directory_Entry_Type;
-    Search                 : Search_Type;
-    Current_Directory_Path : constant String := Current_Directory;
+  procedure Find_Files (Current_Directory_Path : String := Current_Directory)
+  is
+    Dir    : Directory_Entry_Type;
+    Search : Search_Type;
   begin
     Start_Search
      (Search => Search, Directory => Current_Directory_Path, Pattern => "");
@@ -29,9 +29,9 @@ procedure Gitdo is
         Text_IO.Put_Line ("Special file: " & Full_Name (Dir));
       end if;
 
-      if Kind (Dir) = Directory then
-        Text_IO.Put_Line ("Directory: " & Full_Name (Dir));
-      end if;
+      -- if Kind (Dir) = Directory then
+      --   Find_Files (Full_Name (Dir));
+      -- end if;
     end loop;
   end Find_Files;
 begin
