@@ -48,6 +48,8 @@ procedure Gitdo is
           Put_Line (To_Unbounded_String ("-------------------------"));
           Put_Line (To_Unbounded_String ("Directory: " & Full_Name (Dir)));
           Put_Line (To_Unbounded_String ("-------------------------"));
+
+          Find_Files (Full_Name (Dir));
         end if;
       end if;
     end loop;
